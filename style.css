@@ -27,7 +27,8 @@ header{
     background-color: #f6f6f6;
 }
 .header-container{
-    max-width: 1400px;
+    /* width:90%; */
+    max-width: 1400px;/*и так и так можно ужимать*/
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -43,6 +44,7 @@ header{
     font-weight: 300;
     text-align: center;/*расположение текста по центру*/
     padding: 27px 6px;
+    text-transform: uppercase;
 }
 a:hover{
     padding: 20px 6px;
@@ -52,3 +54,60 @@ li:not(:first-child){
     margin-left: 60px;
 }
 /*Шапка с меню готова*/
+
+/*/ Малые девайсы («ландшафтные телефоны», >= 576px)
+@media (min-width: 576px) { ... }
+
+// Средние девайсы («таблетки», >= 768px)
+@media (min-width: 768px) { ... }
+
+// Большие девайсы (десктопы, >= 992px)
+@media (min-width: 992px) { ... }
+
+// Экстрабольшие девайсы (большие десктопы, >= 1200px)
+@media (min-width: 1200px) { ... }
+*/
+@media screen and (max-width: 420px) {
+    .header-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    }
+    .main-menu{
+    display: none;
+    }
+    .main-menu li{
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    }
+    .main-menu a{
+    display: block;
+    padding: 8px;
+    }
+    .toggle-button{
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    color: #000000;
+    }
+    .toggle-button::after{
+    content: attr(data-open);/*ОТОБРОЖЕНИЕ меню*/
+    }
+    #menu-checkbox:checked + nav[role="navigation"] .main-menu{
+    display: block;
+    }
+    #menu-checkbox:checked + nav[role="navigation"] .toggle-button{
+    content: attr(data-close);
+    }
+    .header-container a{
+    margin-left: -60px;
+    }
+    nav{
+    position: relative;
+    }
+    .main-menu{
+    position: absolute;
+  
+    }
+}
