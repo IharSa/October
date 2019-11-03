@@ -72,10 +72,14 @@ li:not(:first-child){
     width: 100%;
     display: flex;
     justify-content: space-around;
+    position: relative;
     }
     .main-menu{
     display: none;
     }
+    /*.main-menu ul{
+    position: absolute;
+    }*/
     .main-menu li{
     width: 100%;
     display: block;
@@ -86,28 +90,28 @@ li:not(:first-child){
     padding: 8px;
     }
     .toggle-button{
-    text-align: center;
+    text-align: left;
     display: block;
     cursor: pointer;
     color: #000000;
+    margin-top: 20px;
     }
+    /*получаем надпись Menu и редактируем рассположение*/
     .toggle-button::after{
     content: attr(data-open);/*ОТОБРОЖЕНИЕ меню*/
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+    padding: 0x 0;
     }
     #menu-checkbox:checked + nav[role="navigation"] .main-menu{
     display: block;
     }
-    #menu-checkbox:checked + nav[role="navigation"] .toggle-button{
+    /*Получаем надпись close*/
+    #menu-checkbox:checked + nav[role="navigation"] .toggle-button::after{
     content: attr(data-close);
     }
-    .header-container a{
-    margin-left: -60px;
-    }
-    nav{
-    position: relative;
-    }
-    .main-menu{
-    position: absolute;
-  
+    li:not(:first-child){
+    margin-left: 0;
     }
 }

@@ -1,0 +1,52 @@
+/* Menu  */
+#menu-checkbox {
+  /* чекбокс скрыт */
+  display: none;
+}
+.main-menu {
+  /* пункты меню скрыты */
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+.main-menu li {
+  /* пункты меню расположены вертикально */
+  /* каждый имеет ширину 100% */
+  font-size: 1em;
+  display: block;
+  width: 100%;
+}
+.main-menu a {
+  /* немного стилизуем ссылки */
+  display: block;
+
+  color: lightslategray;
+  padding: .5em;
+  text-decoration: none;
+}
+.main-menu a:hover {
+  text-decoration: underline;
+}
+.toggle-button {
+  text-align: center;
+  display: block;
+  /* не забываем явно указать каким должен быть курсор */
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+.toggle-button:after {
+  /* получаем данные из атрибута data-open в html */
+  content: attr(data-open);
+  display: block;
+  margin: 10px 0;
+  padding: 10px 30px;
+}
+#menu-checkbox:checked + nav[role="navigation"] .main-menu {
+  /* когда чекбокс активен меню становится видимым */
+  display: block;
+}
+#menu-checkbox:checked + nav[role="navigation"] 
+.toggle-button:after {
+  content: attr(data-close);
+}
